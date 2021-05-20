@@ -1,0 +1,4 @@
+# Teamcity docker files
+/app
+# PostgreSQL docker files
+/postgres

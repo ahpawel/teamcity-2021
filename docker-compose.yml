@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  app:
+    image: "jetbrains/teamcity-server:2021.1-linux"
+    volumes:
+      - ./app/data:/data/teamcity_server/datadir
+      - ./app/logs:/opt/teamcity/logs
+    ports:
+      - 8111:8111
+    links:
+      - db
+    command: "/run-services.sh"
+  db:
+    # latest postgres on AWS RDS
+    image: "postgres:12.6"
+    ports:
+      - 8112:5432
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: teamcity
+      POSTGRES_USER: teamcity
+      POSTGRES_PASSWORD: teamcity
+      PGDATA: /var/lib/postgresql/data/pgdata
+    # custom config for TC
+    command: "postgres -c shared_buffers=512MB -c max_wal_size=1500MB -c synchronous_commit=off -c checkpoint_completion_target=0.9"

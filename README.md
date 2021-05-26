@@ -14,6 +14,11 @@ docker-compose up -d
 
 To activate an agent go to Agents > [Unauthorized](http://localhost:8111/agents.html?tab=unauthorizedAgents) and click Authorize near the agent.
 
+## Clean-up
+
+- Remove configuration files: `rm -rf agents teamcity postgres`
+- Remove docker containers: `docker-compose down`
+
 ## LINKS
 
 - [Teamcity Documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html)

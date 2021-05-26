@@ -3,8 +3,8 @@ services:
   teamcity:
     image: "jetbrains/teamcity-server:2021.1-linux"
     volumes:
-      - ./app/data:/data/teamcity_server/datadir
-      - ./app/logs:/opt/teamcity/logs
+      - ./teamcity/data:/data/teamcity_server/datadir
+      - ./teamcity/logs:/opt/teamcity/logs
     ports:
       - 8111:8111
     links:

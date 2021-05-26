@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  app:
+  teamcity:
     image: "jetbrains/teamcity-server:2021.1-linux"
     volumes:
       - ./app/data:/data/teamcity_server/datadir
@@ -10,12 +10,19 @@ services:
     links:
       - db
     command: "/run-services.sh"
-  agent:
-    image: jetbrains/teamcity-agent
+    depends_on:
+      - db
+
+  teamcity-agent-1:
+    image: jetbrains/teamcity-agent:2021.1-linux-sudo
     volumes:
-      - ./agent/conf:/data/teamcity_agent/conf
+      - ./agents/agent_1/conf:/data/teamcity_agent/conf
     environment:
-      SERVER_URL: "http://app:8111"
+      SERVER_URL: "http://teamcity:8111"
+      DOCKER_IN_DOCKER: start
+    depends_on:
+      - teamcity
+
   db:
     # latest postgres on AWS RDS
     image: "postgres:12.6"

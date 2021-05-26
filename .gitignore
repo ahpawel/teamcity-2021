@@ -3,4 +3,4 @@
 # PostgreSQL docker files
 /postgres
 # Teamcity agent docker files
-/agent
+/agents

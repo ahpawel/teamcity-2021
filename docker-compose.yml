@@ -10,6 +10,12 @@ services:
     links:
       - db
     command: "/run-services.sh"
+  agent:
+    image: jetbrains/teamcity-agent
+    volumes:
+      - ./agent/conf:/data/teamcity_agent/conf
+    environment:
+      SERVER_URL: "http://app:8111"
   db:
     # latest postgres on AWS RDS
     image: "postgres:12.6"

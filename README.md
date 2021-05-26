@@ -12,6 +12,8 @@ Teamcity runs on [port 8111](http://localhost:8111). In case of permission issue
 docker-compose up -d
 ```
 
+To activate an agent go to Agents > [Unauthorized](http://localhost:8111/agents.html?tab=unauthorizedAgents) and click Authorize near the agent.
+
 ## LINKS
 
 - [Teamcity Documentation](https://www.jetbrains.com/help/teamcity/teamcity-documentation.html)

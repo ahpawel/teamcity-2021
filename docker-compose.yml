@@ -15,6 +15,7 @@ services:
 
   teamcity-agent-1:
     image: jetbrains/teamcity-agent:2021.1-linux-sudo
+    privileged: true
     volumes:
       - ./agents/agent_1/conf:/data/teamcity_agent/conf
     environment:

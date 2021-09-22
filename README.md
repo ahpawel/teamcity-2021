@@ -1,4 +1,4 @@
-# Temcity Trial 2021
+# Temcity Trial 2017
 
 ## Quick start
 
@@ -13,8 +13,6 @@ docker-compose up -d
 ```
 
 To activate an agent go to Agents > [Unauthorized](http://localhost:8111/agents.html?tab=unauthorizedAgents) and click Authorize near the agent.
-
-Set `teamcity.docker.use.sudo=true` in `buildAgent.properties` file if needed and restart worker.
 
 ## Preperation before the first build
 

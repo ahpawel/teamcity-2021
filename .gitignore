@@ -4,3 +4,5 @@
 /postgres
 # Teamcity agent docker files
 /agents
+# Private git repositories
+/repos

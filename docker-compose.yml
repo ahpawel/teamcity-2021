@@ -5,6 +5,7 @@ services:
     volumes:
       - ./teamcity/data:/data/teamcity_server/datadir
       - ./teamcity/logs:/opt/teamcity/logs
+      - ./repos:/repos
     ports:
       - 8111:8111
     links:
@@ -18,6 +19,7 @@ services:
     privileged: true
     volumes:
       - ./agents/agent_1/conf:/data/teamcity_agent/conf
+      - ./repos:/repos
     environment:
       SERVER_URL: "http://teamcity:8111"
       DOCKER_IN_DOCKER: start

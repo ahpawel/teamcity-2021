@@ -1,0 +1,5 @@
+# Docker maven cache folder
+.m2/
+
+# build
+target/
